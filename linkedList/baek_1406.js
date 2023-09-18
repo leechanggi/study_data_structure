@@ -1,20 +1,21 @@
-// let example = `dmih
-// 11
-// B
-// B
-// P x
-// L
-// B
-// B
-// B
-// P y
-// D
-// D
-// P z`;
-// let input = example.toString().split("\n");
+let example = `dmih
+11
+B
+B
+P x
+L
+B
+B
+B
+P y
+D
+D
+P z`;
+let input = example.toString().split("\n");
 
-let fs = require("fs");
-let input = fs.readFileSync("/dev/stdin").toString().split("\n");
+// let fs = require("fs");
+// let input = fs.readFileSync("/dev/stdin").toString().split("\n");
+
 let left = input[0].split("");
 let right = [];
 let n = parseInt(input[1]);
