@@ -1,8 +1,8 @@
-// let example = `A*(B+C)`;
-// let input = example.toString().trim().split("\n");
+let example = `A*(B+C)`;
+let input = example.toString().trim().split("\n");
 
-const path = process.platform === "linux" ? "/dev/stdin" : "input.txt";
-const input = require("fs").readFileSync(path).toString().trim().split("\n");
+// const path = process.platform === "linux" ? "/dev/stdin" : "input.txt";
+// const input = require("fs").readFileSync(path).toString().trim().split("\n");
 
 let [string] = input;
 
