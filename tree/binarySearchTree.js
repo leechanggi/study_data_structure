@@ -2,7 +2,7 @@ class BinarySearchTree {
 	root = null;
 
 	#insert(node, value) {
-		if (node.value > value) {
+		if (value < node.value) {
 			if (node.left) {
 				this.#insert(node.left, value);
 			} else {
@@ -18,28 +18,31 @@ class BinarySearchTree {
 	}
 
 	insert(value) {
-		// 어떤 값을 넣으려할때, 일단 어디에 넣을지 모르겠다.
-		// 그래서 왼팔, 오른팔한테 맡긴다.
-		// 근데 만약 왼팔, 오른팔이 없으면 거기에다가 넣는다.
-
 		if (!this.root) {
 			this.root = new Node(value);
 		} else {
 			this.#insert(this.root, value);
 		}
-
 		// 숙제 : 같은 값을 넣은경우 Error 처리(alert, throw)
-
-		// if (this.root.value > value) {
-		// 	// 루트노드보다 작은 경우
-		// 	this.#insert(this.root.left, value);
-		// } else {
-		// 	// 루트노드보다 큰 경우
-		// 	this.#insert(this.root.right, value);
-		// }
 	}
 
-	search(value) {}
+	#search(node, value) {
+		if (value < node.value) {
+			this.#search(node.left, value);
+		} else if (value > node.value) {
+			this.#search(node.right, value);
+		} else {
+			return node;
+		}
+	}
+
+	search(value) {
+		if (value === this.root.value) {
+			return this.root;
+		} else {
+			this.#search(this.root, value);
+		}
+	}
 	remove(value) {}
 }
 
@@ -62,3 +65,4 @@ bst.insert(3);
 bst.insert(1);
 bst.insert(8);
 bst.insert(2);
+bst.search(5);
