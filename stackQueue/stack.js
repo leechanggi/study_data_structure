@@ -15,9 +15,12 @@ class Stack {
 }
 
 const stack = new Stack();
-stack.push(1);
-stack.push(2);
-stack.push(3);
-stack.push(4);
-stack.push(5);
-console.log(stack.top());
+stack.push('일');
+stack.push('이');
+stack.push('삼');
+stack.push('사');
+stack.push('오');
+stack.pop();
+stack.top();
+
+// linkedList.js의 코드를 참고하여 Stack 클래스를 구현하세요.

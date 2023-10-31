@@ -1,6 +1,7 @@
 class LinkedList {
 	length = 0;
 	head = null;
+	tail = null;
 
 	add(value) {
 		if (this.head) {
@@ -9,15 +10,19 @@ class LinkedList {
 				current = current.next;
 			}
 			current.next = new Node(value);
+			current.next.prev = current;
+			this.tail = current.next;
 		} else {
 			this.head = new Node(value);
 		}
 		this.length++;
 		return this.length;
 	}
+
 	search(index) {
 		return this.#search(index)[1]?.value;
 	}
+
 	#search(index) {
 		let count = 0;
 		let prev;
@@ -29,6 +34,7 @@ class LinkedList {
 		}
 		return [prev, current];
 	}
+
 	remove(index) {
 		const [prev, current] = this.#search(index);
 		if (prev && current) {
@@ -45,7 +51,9 @@ class LinkedList {
 		// 아무것도 안 함
 	}
 }
+
 class Node {
+	prev = null;
 	next = null;
 	constructor(value) {
 		this.value = value;
@@ -53,16 +61,18 @@ class Node {
 }
 
 const ll = new LinkedList();
-ll.length;
-ll.add(1); // 1
-ll.add(2); // 2
-ll.add(3); // 3
-ll.add(4); // 4
-ll.add(5); // 5
-ll.add(6); // 6
+ll.add('일'); // 1
+ll.add('이'); // 2
+ll.add('삼'); // 3
+ll.add('사'); // 4
+ll.add('오'); // 5
+ll.add('육'); // 6
 ll.search(6); // undefined
 ll.remove(4);
 ll.search(4); // 6;
 ll.remove(4);
 ll.search(4); // undefined
 ll.remove(4); // undefined
+
+// prev 추가
+// 삽입을 O의 1으로 만들기
