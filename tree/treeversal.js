@@ -34,15 +34,29 @@ function dfs(tree) {
 	}
 }
 
+// PreOrder
+function preOrder(node) {
+	if (!node) return;
+	console.log(node.value);
+	preOrder(node.left);
+	preOrder(node.right);
+}
+
 // InOrder
-function inOrder(tree) {
-	inOrder(root.left);
-	console.log(root.value);
-	inOrder(root.right);
+function inOrder(node) {
+	if (!node) return;
+	inOrder(node.left);
+	console.log(node.value);
+	inOrder(node.right);
 }
 
 // PostOrder
-function postOrder(tree) {}
+function postOrder(node) {
+	if (!node) return;
+	postOrder(node.left);
+	postOrder(node.right);
+	console.log(node.value);
+}
 
 const bst = new BinarySearchTree();
 bst.insert(4);
@@ -58,3 +72,9 @@ bst.insert(7);
 
 // dfs(bst);
 // bst;
+
+// preOrder(bst.root);
+
+// inOrder(bst.root);
+
+// postOrder(bst.root);
